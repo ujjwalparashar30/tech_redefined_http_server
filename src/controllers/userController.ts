@@ -27,7 +27,7 @@ export const signupUser = async (req: Request, res: Response) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, // MS
     httpOnly: true, // prevent XSS attacks cross-site scripting attacks
     sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-    secure: "true",
+    secure: true,
   });
     res.status(201).json({
       message: "User created successfully",
@@ -66,7 +66,7 @@ export const loginUser = async(req:Request, res:Response) => {
           maxAge: 7 * 24 * 60 * 60 * 1000, // MS
           httpOnly: true, // prevent XSS attacks cross-site scripting attacks
           sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-          secure: "true",
+          secure: true,
         });
         res.json(token)
     }
