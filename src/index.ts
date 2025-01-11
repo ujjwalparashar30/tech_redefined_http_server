@@ -24,7 +24,7 @@ mongoose
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "*", // Replace with your frontend URL
+  origin: "https://spontaneous-cobbler-2978a6.netlify.app/", // Replace with your frontend URL
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
