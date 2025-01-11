@@ -27,7 +27,7 @@ export const signupUser = async (req: Request, res: Response) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, // MS
     httpOnly: true, // prevent XSS attacks cross-site scripting attacks
     sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-    secure: process.env.NODE_ENV !== "development",
+    secure: "true",
   });
     res.status(201).json({
       message: "User created successfully",
@@ -53,6 +53,7 @@ export const loginUser = async(req:Request, res:Response) => {
     const existingUser = await User.findOne({
         username:username
     })
+    console.log(existingUser)
 
     if(existingUser){
         const verification = await bcrypt.compare(password,existingUser.password as string)
@@ -60,11 +61,12 @@ export const loginUser = async(req:Request, res:Response) => {
         const token = jwt.sign({
             id : existingUser._id
         },process.env.JWT_Secret as string)
+        console.log(token)
         res.cookie("jwt", token, {
           maxAge: 7 * 24 * 60 * 60 * 1000, // MS
           httpOnly: true, // prevent XSS attacks cross-site scripting attacks
           sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-          secure: process.env.NODE_ENV !== "development",
+          secure: "true",
         });
         res.json(token)
     }
