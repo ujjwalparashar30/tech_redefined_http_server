@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   origin: "https://spontaneous-cobbler-2978a6.netlify.app", // Replace with your frontend URL
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  credentials : true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
 app.get("/", (req, res) => {
