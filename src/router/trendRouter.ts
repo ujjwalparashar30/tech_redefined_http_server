@@ -5,7 +5,7 @@ import { getTrends, topUser } from "../controllers/trendsController";
 
 const trendsRouter = express.Router();
 
-trendsRouter.get("/", userMiddleware, getTrends);
+trendsRouter.get("/", getTrends);
 trendsRouter.get("/topUser",topUser)
 
 export default trendsRouter;
