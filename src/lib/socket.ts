@@ -10,7 +10,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://spontaneous-cobbler-2978a6.netlify.app/",
+    origin: "https://spontaneous-cobbler-2978a6.netlify.app",
   },
 });
 
